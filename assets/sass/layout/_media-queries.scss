@@ -1,0 +1,15 @@
+////// Small devices (375px - 450px) //////
+
+////// Medium Devices (375px - 450px) //////
+$layout-breakpoint-small: 660px;
+$layout-breakpoint-bigger: 1000px;
+
+@media (min-width: $layout-breakpoint-small) {
+  @include utilities-for-md-devices;
+  @include nav-for-md-devices;
+  @include main-for-md-devices;
+}
+
+@media (min-width: $layout-breakpoint-bigger) {
+  @include main-for-xl-devices;
+};

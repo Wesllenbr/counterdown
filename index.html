@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CounterDown</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CounterDown</title>
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <script src="https://kit.fontawesome.com/5daed268b2.js" crossorigin="anonymous"></script>
 </head>
-
-<body>
-    <main>
-        <div id="countdown"></div>
-        <button id="stop">parar</button>
-    </main>
-
-    <script src="app.js"></script>
+<body class="countdown">
+  <header class="header countdown__header">
+    <h1 class="countdown__title">We're launching soon</h1>
+  </header>
+  <main class="main countdown__main">
+    <div class="countdown__component">
+      <div class="countdown__item">
+        <div id="countdown-days" class="countdown__number countdown__number-days">04</div>
+        <p class="countdown__type">Days</p>
+      </div>
+      <div class="countdown__item">
+        <div id="countdown-hours" class="countdown__number countdown__number-hours">04</div>
+        <p class="countdown__type">Hours</p>
+      </div>
+      <div class="countdown__item">
+        <div id="countdown-minutes" class="countdown__number countdown__number-minutes">04</div>
+        <p class="countdown__type">Minutes</p>
+      </div>
+      <div class="countdown__item">
+        <div id="countdown-seconds" class="countdown__number countdown__number-seconds">04</div>
+        <p class="countdown__type">Seconds</p>
+      </div>
+    </div>
+  </main>
+  <footer class="footer countdown__footer">
+    <nav class="footer__nav">
+      <ul class="social-media">
+        <li><a class="social-media__link" target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i></a></li>
+        <li><a class="social-media__link" target="_blank" href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a></li>
+        <li><a class="social-media__link" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </nav>
+  </footer>
+  <script src="assets/js/app.js"></script>
 </body>
-
 </html>
