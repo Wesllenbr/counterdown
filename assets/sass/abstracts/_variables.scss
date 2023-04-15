@@ -1,9 +1,31 @@
+$breakpoints: (
+  'landscape': (orientation: landscape),
+  'medium': (min-width: 760px),
+  'large': (min-width: 1000px),
+  'huge': (min-width: 1200px),
+);
 
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
 
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
-:root {  //Color page - Primary = 60% - Secondary = 30% - Accent = 10%
-  --primary-clr-0: hsl(0, 0%, 100%);
-  --secondary-clr-0: hsl(0, 0%, 100%);
-  --accent-clr-0: hsl(0, 0%, 100%);
-  --neutral-clr-0: hsl(0, 0%, 100%);
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
 }
+

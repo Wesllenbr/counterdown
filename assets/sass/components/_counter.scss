@@ -1,0 +1,194 @@
+.countdown {
+    display: flex;
+    flex-direction: column;
+    background:
+        url(/assets/images/pattern-hills.svg),
+        url(/assets/images/bg-stars.svg),
+        linear-gradient(180deg, #1E1E2A 0.53%, #211D2B 68.82%, #251D2C 105.69%),
+        linear-gradient(180deg, #1E1E2A 0.4%, #211D2B 51.56%, #251D2C 91.15%);
+    background-position: bottom right 20%, center, center;
+    background-size: auto, cover, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    color: hsl(0, 0%, 100%);
+
+    &__big-title {
+        font-size: 14px;
+        text-align: center;
+        margin-block-start: 5rem;
+        margin-block-end: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+
+    &__component {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        flex: 0 1;
+    }
+
+    &__number {
+        display: grid;
+        place-items: center;
+        width: 68px;
+        height: 68px;
+        background: linear-gradient(180deg, hsl(236, 21%, 22%) 54%, hsl(236, 21%, 26%) 50%);
+        border-radius: 6px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: hsl(345, 95%, 68%);
+        position: relative;
+        overflow: hidden;
+        padding-block-start: 4px;
+        margin-block-end: 1rem;
+        box-shadow: -1px 4px 0px hsl(236, 21%, 10%);
+    }
+
+    &__number::before,
+    &__number::after {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        top: 50%;
+        background: #19192B;
+    }
+
+    &__number::before {
+        transform: translateX(-4px);
+        left: 0;
+    }
+
+    &__number::after {
+        transform: translateX(4px);
+        right: 0;
+    }
+
+    &__type {
+        text-transform: uppercase;
+        color: #8385A9;
+        font-size: 12px;
+    }
+
+    @include respond-to(landscape) {
+        .countdown {
+            &__title {
+                margin-block-start: 2.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    @include respond-to(medium) {
+        .countdown {
+            &__title {
+                font-size: 1.3rem;
+                margin-bottom: 6rem;
+            }
+    
+            &__number {
+                width: 100px;
+                height: 100px;
+                font-size: 3rem;
+            }
+    
+            &__number::before,
+            &__number::after {
+                width: 8px;
+                height: 8px;
+            }
+    
+            &__type {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @include respond-to(large) {
+        .countdown {
+            &__title {
+                font-size: 1.4rem;
+                margin-block-start: 5rem;
+                margin-block-end: 6rem;
+            }
+    
+            &__number {
+                width: 140px;
+                height: 140px;
+                font-size: 4rem;
+            }
+    
+            &__number::before,
+            &__number::after {
+                width: 10px;
+                height: 10px;
+            }
+    
+            &__type {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.social-media {
+    display: flex;
+    gap: 1.3rem;
+    margin-inline: auto;
+    position: absolute;
+    bottom: 1.5rem;
+    right: 0;
+    left: 0;
+    width: max-content;
+    font-size: 1.5rem;
+    color: #8385A9;
+
+    @include respond-to(medium) {
+        & {
+            bottom: 2rem;
+            font-size: 1.5rem;
+            gap: 1rem;
+    
+            &__link {
+                transition: .3s;
+            }
+    
+            &__link:hover {
+                color: hsl(345, 95%, 68%);
+            }
+        }
+    }
+
+    @include respond-to(large) {
+        .social-media {
+            bottom: 2.5rem;
+            font-size: 1.7rem;
+        }
+    }
+}
+
+// Animations
+.countdown {
+    &__item {
+        perspective: none;
+    }
+
+    &__number.flip-down {
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        animation: flipDown 0.8s;
+    }
+
+    @keyframes flipDown {
+        0% {
+            transform: rotateX(180deg);
+        }
+    }
+}
